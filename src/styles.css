@@ -1,0 +1,28 @@
+@import "ngx-toastr/toastr";
+
+body {
+  background: url(./assets/img/background_azienda.jpg) no-repeat fixed center;
+}
+
+/* rimuovere freccette per input:number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.my-col-2 {
+  margin-top: 15px !important;
+}
+
+.my-salary {
+  margin-left: 160px;
+}
+
+.my-submit {
+  margin-right: 160px;
+  margin-left: 160px;
+}

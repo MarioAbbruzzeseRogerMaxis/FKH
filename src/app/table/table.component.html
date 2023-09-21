@@ -1,0 +1,53 @@
+<div class="container bg-dark border rounded mt-5 mx-auto pb-3">
+  <div class="d-block mt-3 text-white">
+    <div class="row">
+      <div class="col-2 my-col-2">
+        <p>
+          <a routerLink="/insert" class="text-decoration-none text-white"
+            ><i class="bi bi-arrow-left-short"></i>
+            Torna alla home
+          </a>
+        </p>
+      </div>
+      <div class="col-6 px-0">
+        <h1 class="text-center">Tabella dipendenti</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <table class="table-dark table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Sesso</th>
+            <th scope="col">Data di nascita</th>
+            <th scope="col">Stipendio</th>
+            <th scope="col">Elimina</th>
+            <th scope="col">Modifica</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let dipendente of dipendenti; let i = index">
+          <tr>
+            <th>{{ dipendente.id }}</th>
+            <td>{{ dipendente.name | titlecase }}</td>
+            <td>{{ dipendente.surname | titlecase }}</td>
+            <td>{{ dipendente.sex | titlecase }}</td>
+            <td>{{ dipendente.date | date : "dd/MM/yyyy" }}</td>
+            <td>{{ dipendente.salary | currency : "EUR" }}</td>
+            <td>
+              <a class="btn btn-primary" (click)="deleteSingle(i)"> Elimina </a>
+            </td>
+            <td>
+              <a class="btn btn-primary" routerLink="/edit/{{ dipendente.id }}">
+                Modifica
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

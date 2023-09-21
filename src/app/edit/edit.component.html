@@ -1,0 +1,100 @@
+<div class="container bg-dark border rounded mt-5 mx-auto pb-3 shadow">
+  <div class="d-block mt-3 text-white">
+    <div class="row">
+      <div class="col-10">
+        <h1 class="text-center">Modifica dipendente</h1>
+      </div>
+      <div class="col-2 my-col-2">
+        <p>
+          <a routerLink="/table" class="text-decoration-none text-white"
+            >Vai alla tabella
+            <i class="bi bi-arrow-right-short"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+    <form #editForm="ngForm" (ngSubmit)="submit()">
+      <!-- riga nome e cognome -->
+      <div class="row d-flex justify-content-center mt-2 mb-2">
+        <div class="col-4">
+          <label for="name" id="name" class="form-label">Nome</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Nome"
+            class="form-control"
+            [(ngModel)]="dipendente.name"
+          />
+        </div>
+        <div class="col-4">
+          <label for="surname" id="surname" class="form-label">Cognome</label>
+          <input
+            type="text"
+            name="surname"
+            id="surname"
+            placeholder="Cognome"
+            class="form-control"
+            [(ngModel)]="dipendente.surname"
+          />
+        </div>
+      </div>
+      <!-- riga con select sesso e data -->
+      <div class="row d-flex justify-content-center mt-2 mb-2">
+        <div class="col-4">
+          <label for="sex" id="sex" class="form-label">Sesso</label>
+          <select
+            name="sex"
+            id="sex"
+            class="form-select"
+            [(ngModel)]="dipendente.sex"
+          >
+            <option value="placeholder" selected>Scegli..</option>
+            <option value="femmina">Femmina</option>
+            <option value="maschio">Maschio</option>
+            <option value="altro">Altro</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label for="date" id="date" class="form-label">Data di nascita</label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+            class="form-control"
+            [(ngModel)]="dipendente.date"
+          />
+        </div>
+      </div>
+
+      <!-- stipendio con pattern -->
+      <div class="row d-flex mt-2 mb-2">
+        <div class="col-4 my-salary">
+          <label for="salary" id="salary" class="form-label">Stipendio</label>
+          <div class="input-group">
+            <input
+              type="number"
+              name="salary"
+              id="salary"
+              class="form-control"
+              [(ngModel)]="dipendente.salary"
+            />
+            <span class="input-group-text">
+              <i class="bi bi-currency-euro"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="text-danger text-center" *ngIf="errorMsg">
+        Compila tutti i campi
+      </div>
+
+      <!-- bottone submit -->
+      <div class="d-grid mx-auto">
+        <button class="btn text-white btn-primary my-submit mt-3" type="submit">
+          Inserisci
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
